@@ -1,0 +1,26 @@
+.content {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.radius {
+  border-radius: 4px;
+}
+
+.wrapper-content {
+  background-color: #1B998B;
+}
+
+.card {
+  background-color: #F1FAEE;
+  width: 220px;
+  padding: 10px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 3px 6px 4px -1px #097769;
+  margin: 10px 10px 10px 10px;
+}

@@ -1,14 +1,32 @@
-<ul>
-  <% @cocktails.each do |c| %>
-    <li>
-      <% if c.photo.url %>
-          <p><%= link_to c.name, cocktail_path(c) %></p>
-          <%= image_tag c.photo.url(:thumbnail) %>
-      <% else %>
-          <%= link_to c.name, cocktail_path(c) %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<% link = 'vlfjf1p9u0yhx4dcxwya.jpg' %>
 
-<%= link_to "Add a cocktail", new_cocktail_path %>
+<div class="banner">
+  <%= cl_image_tag link, class: 'banner-img' %>
+</div>
+
+<div class="wrapper-content">
+  <div class="container">
+    <div class="row content">
+        <% @cocktails.each do |c| %>
+          <div class="card">
+            <% if c.photo.url %>
+                <div class="card-content"><%= link_to c.name, cocktail_path(c) %></div>
+                <div class="card-content"><%= image_tag c.photo.url(:thumbnail), class:"radius" %></div>
+            <% else %>
+                <%= link_to c.name, cocktail_path(c) %>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
