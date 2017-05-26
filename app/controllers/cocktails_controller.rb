@@ -1,6 +1,6 @@
 class CocktailsController < ApplicationController
   def index
-    @cocktails = Cocktail.all
+    @cocktails = Cocktail.order("lower(name) ASC").all
   end
 
   def show
@@ -21,9 +21,16 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def update
+    @cocktail = Cocktail.find(params[:id])
+    @cocktail.update(cocktail_params)
+    redirect_to cocktail_path(@cocktail)
+  end
+
+
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :description, :photo, :photo_cache)
   end
 end

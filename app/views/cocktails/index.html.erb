@@ -1,6 +1,13 @@
 <ul>
   <% @cocktails.each do |c| %>
-    <li><%= link_to c.name, cocktail_path(c) %></li>
+    <li>
+      <% if c.photo.url %>
+          <p><%= link_to c.name, cocktail_path(c) %></p>
+          <%= image_tag c.photo.url(:thumbnail) %>
+      <% else %>
+          <%= link_to c.name, cocktail_path(c) %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 

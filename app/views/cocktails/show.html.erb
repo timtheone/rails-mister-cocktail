@@ -1,4 +1,8 @@
-<%= @cocktail.name %>
+<h3><%= @cocktail.name %></h3>
+
+<% if @cocktail.photo.url %>
+  <%= image_tag @cocktail.photo.url(:standard) %>
+<% end %>
 
 
 <ul>
@@ -14,3 +18,12 @@
 <p><%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %></p>
 
 <p><%= link_to "Homepage", root_path %></p>
+
+
+<p>Add a photo</p>
+
+<%= simple_form_for(@cocktail) do |f| %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit "Upload" %>
+<% end %>
